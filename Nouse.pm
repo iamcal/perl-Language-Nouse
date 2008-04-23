@@ -3,7 +3,7 @@ package Language::Nouse;
 use strict;
 use warnings;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub new {
         my $class = shift;
@@ -111,7 +111,7 @@ sub get_linenoise {
 
 	$self->_reset_ring();
 
-	my $buffer;
+	my $buffer = '';
 	for my $raw(@{$self->{ring}}){
 		my $op = $raw % 7;
 		my $mul = int($raw / 7);
