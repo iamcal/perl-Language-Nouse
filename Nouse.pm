@@ -3,7 +3,7 @@ package Language::Nouse;
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub new {
         my $class = shift;
@@ -48,13 +48,13 @@ sub load_linenoise {
 
 	$self->_reset_ring();
 
-	my $op = qr/#:<>+?^/;
-	my $mul = qr/0-9a-z_/;
+	my $op = qr/[#:<>+?^]/;
+	my $mul = qr/[0-9a-z_]/;
 
-	# strip other characters
-	$input =~ s/[^$op$mul]//g;
+	my $not_op = qr/[^#:<>+?^]/;
+	my $not_mul = qr/[^0-9a-z_]/;
 
-	while ($input =~ m/([$op])([$mul])/g){
+	while ($input =~ m/$not_op*($op)$not_mul*($mul)/g){
 
 		my $this_op = $1;
 		my $this_mul = $2;
