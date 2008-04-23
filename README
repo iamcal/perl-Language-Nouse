@@ -1,7 +1,8 @@
-Language/Nouse version 0.01
-===========================
+Language/Nouse.pm
+=================
 
-Blah
+A parser and interpreter for Nouse
+( see http://www.geocities.com/qpliu/nouse/nouse.html )
 
 
 INSTALLATION
